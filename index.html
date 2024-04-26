@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who am i for you?</title>
+    <style>
+      body {
+        background-color: azure;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        font-family: monospace;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .container {
+        width: fit-content;
+      }
+      .btns {
+        width: fit-content;
+        margin: auto;
+      }
+      button {
+        padding: 10px;
+        border: none;
+        margin-inline: 10px;
+        font-family: monospace;
+        background-color: burlywood;
+        font-size: 20px;
+        border-radius: 25px;
+        width: 8rem;
+        position: relative;
+      }
+      #friendbtn {
+        transition: all 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Who am i for you🤔?</h1>
+      <div class="btns">
+        <button id="papabtn">Papa</button>
+        <button id="friendbtn">friend</button>
+      </div>
+    </div>
+    <script>
+      const beta = new Audio(
+        "https://besharamcode-old.netlify.app/Assets/merasher.mp3"
+      );
+      const laugh = new Audio(
+        "https://besharamcode-old.netlify.app/Assets/lough.mp3"
+      );
+
+      const bodyrect = document.body.getBoundingClientRect();
+      alert("tell who am i for you");
+      const friendrect = document
+        .getElementById("friendbtn")
+        .getBoundingClientRect();
+      const papabtn = document.getElementById("papabtn");
+      const friendbtn = document.getElementById("friendbtn");
+      friendbtn.addEventListener("mouseenter", (e) => {
+        console.log(e.currentTarget);
+        const x =
+          Math.floor(Math.random() * bodyrect.width - friendrect.width) + 1;
+        const y =
+          Math.floor(Math.random() * bodyrect.height - friendrect.height) + 1;
+        e.currentTarget.style.position = `absolute`;
+        e.currentTarget.style.left = `${x}px`;
+        e.currentTarget.style.top = `${y}px`;
+        laugh.play();
+      });
+      papabtn.onclick = () => {
+        beta.play();
+      };
+    </script>
+  </body>
+</html>
